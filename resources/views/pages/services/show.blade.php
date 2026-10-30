@@ -1,0 +1,8 @@
+@extends('layouts.public')
+@section('title', $service['title'].' | خدمت مهندسی آزمایشی')
+@section('description', $service['excerpt'])
+@section('content')
+<x-page-hero eyebrow="خدمت مهندسی" :title="$service['title']" :lead="$service['excerpt']"><a class="button button--primary" href="{{ url('/quote') }}">درخواست بررسی پروژه</a></x-page-hero>
+<x-breadcrumb :items="['خدمات' => url('/services'), $service['title'] => url('/services/'.$service['slug'])]" />
+<section class="section section--white"><div class="site-container grid grid--detail"><article><x-visual-placeholder :label="$service['title'].' — تصویر آزمایشی'" height="380px" /><h2 style="font-size:27px;font-weight:950;margin:30px 0 10px">دامنهٔ پیشنهادی خدمت</h2><p class="muted">{{ $service['description'] }}</p><div class="grid grid--3" style="margin-top:24px">@foreach($service['steps'] as $index => $step)<div class="panel"><span class="eyebrow">مرحله {{ $index + 1 }}</span><strong>{{ $step }}</strong></div>@endforeach</div></article><aside class="stack"><div class="panel"><h3 class="card__title">برای شروع چه می‌خواهیم؟</h3><ul class="text-small muted" style="padding-right:18px;list-style:disc"><li>شرح مسئله و نوع بار</li><li>ابعاد و شرایط محل</li><li>ظرفیت و سیکل مورد انتظار</li><li>زمان‌بندی تقریبی</li></ul></div><div class="panel" style="border-top:4px solid #f4b41a"><h3 class="card__title">مشاوره اولیه</h3><p class="card__text">این CTA در نسخهٔ نمایشی داده‌ای ارسال نمی‌کند.</p><a class="button button--dark" style="margin-top:15px;width:100%" href="{{ url('/quote') }}">ثبت درخواست</a></div></aside></div></section>
+@endsection

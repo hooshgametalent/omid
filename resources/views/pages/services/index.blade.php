@@ -1,0 +1,9 @@
+@extends('layouts.public')
+@section('title', 'خدمات طراحی، ساخت و نگهداری جرثقیل | نمونه')
+@section('description', 'معرفی نمونه خدمات مهندسی جرثقیل از طراحی تا نصب، تعمیر و نوسازی.')
+@section('content')
+<x-page-hero eyebrow="خدمات مهندسی" title="پشتیبانی از طراحی تا نگهداری" lead="ساختار این خدمات آزمایشی است و دامنهٔ واقعی هر خدمت باید توسط کارفرما تأیید شود." />
+<x-breadcrumb :items="['خدمات' => url('/services')]" />
+<section class="section"><div class="site-container"><div class="grid grid--2">@foreach($services as $index => $service)<article class="card" style="display:grid;grid-template-columns:210px 1fr"><x-visual-placeholder :label="$service['title']" height="100%" /><div class="card__body"><span class="eyebrow">خدمت ۰{{ $index + 1 }}</span><h2 class="card__title" style="font-size:21px">{{ $service['title'] }}</h2><p class="card__text">{{ $service['excerpt'] }}</p><a class="button button--soft" style="margin-top:18px" href="{{ url('/services/'.$service['slug']) }}">جزئیات خدمت</a></div></article>@endforeach</div></div></section>
+<section class="section section--white"><div class="site-container"><x-section-heading title="فرایند همکاری پیشنهادی" description="مراحل واقعی براساس نوع پروژه تغییر می‌کنند." /><div class="grid grid--4"><div class="panel"><span class="eyebrow">01</span><strong>ثبت نیاز</strong><p class="card__text">اطلاعات اولیه و محدودیت‌های پروژه.</p></div><div class="panel"><span class="eyebrow">02</span><strong>بررسی فنی</strong><p class="card__text">بازدید و جمع‌بندی گزینه‌ها.</p></div><div class="panel"><span class="eyebrow">03</span><strong>پیشنهاد</strong><p class="card__text">دامنه، زمان و هزینهٔ تأییدشده.</p></div><div class="panel"><span class="eyebrow">04</span><strong>اجرا</strong><p class="card__text">ساخت، کنترل و تحویل.</p></div></div></div></section>
+@endsection
